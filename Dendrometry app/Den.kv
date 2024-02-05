@@ -1,0 +1,580 @@
+WindowManager:
+    MainScreen:
+    InfoScreen:
+    ChooseScreen:
+    CalculatorScreen:
+    
+    Wzory_pod:
+    Huber_:
+    Smalian_:
+    Hossfeld_:
+    Pole_:
+
+<RoundedButton@Button>
+    font_name: "static/PlaypenSans-Regular.ttf"
+    background_normal: 'static/button_before.png'  
+    background_down: 'static/Button_after.png'
+<ScrollButton@Button>
+
+    font_name: "static/PlaypenSans-Regular.ttf"
+    size_hint_y: None
+    size_hint_x: 1  # Zmieniamy size_hint_x na 1, aby przycisk zajmował całą dostępną szerokość
+    background_normal: 'static/button_before.png'  
+    background_down: 'static/Button_after.png'
+ 
+
+<MainScreen>
+    name: "main"
+    font_name: "static/PlaypenSans-Regular.ttf"
+    FloatLayout:
+
+        Label:
+            text: "Dendro Calc"
+            font_size: 35
+            font_name: "static/PlaypenSans-Regular.ttf"
+            size_hint: 0.5, 0.5
+            pos_hint: {"center_x":0.5 , "center_y":0.6}        
+        
+        BoxLayout:
+        
+        
+            pos_hint: {"center_x":0.5 , "center_y":0.4}
+            size_hint: None,None
+            size: 100, 60
+        
+            RoundedButton:
+                text: "dalej"
+                font_size: 20
+                font_name: "static/PlaypenSans-Regular.ttf"
+                
+                on_release:
+                    root.manager.current = "choose"
+
+        Button:
+            background_normal: 'static\Info_ico_before.png' # Twoja ścieżka do obrazka
+            background_down: 'static\Info_ico_after.png'  # Obrazek po naciśnięciu
+            size_hint: None, None
+            size: 48, 48
+
+            halign: 'left'
+
+            on_release:
+                root.manager.current = "info"
+                
+        Label:
+            text: "made by DEZIET"
+            font_size: 14
+            font_name: "static/PlaypenSans-Regular.ttf"
+            
+            size_hint: None, None
+            size: self.texture_size
+            
+            padding: 10,0
+            pos_hint: {'top': 1.0, 'right': 1.0}
+            halign: 'right' 
+            valign: 'top'  
+
+        Label:
+            text: "version 1.1"
+            font_size: 14
+            font_name: "static/PlaypenSans-Regular.ttf"
+            
+            size_hint: None, None
+            size: self.texture_size
+            
+            padding: 10,0
+            pos_hint: {'bottom': 1.0, 'right': 1.0}
+            halign: 'right' 
+            valign: 'top'  
+
+<InfoScreen>
+    name: "info"
+    font_name: "static/PlaypenSans-Regular.ttf"
+
+    FloatLayout:
+
+        Label:
+            text: "Aplikacja wykonana w ramach pracy inżynierskiej ......."
+
+        Button:
+            text: "back"
+            font_name: "static/PlaypenSans-Regular.ttf"
+            size_hint: None, None
+            size: 90,50
+            border: 0,0
+            on_release:
+                root.manager.current = "main"
+
+<ChooseScreen>
+    name: "choose"
+    font_name: "static/PlaypenSans-Regular.ttf"
+
+    FloatLayout:
+        
+        ScrollView: 
+    
+            pos_hint: {"center_x":0.5 , "center_y":0.6} 
+            size_hint: 0.8,0.5
+            
+            do_scroll_y: True
+            do_scroll_x: False
+            
+            GridLayout:
+                cols:1
+                size: (root.width, root.height)
+                size_hint_y: None
+                height: self.minimum_height
+
+                ScrollButton:
+                    text: "Wzory podstawowe"
+                    on_release:
+                        root.manager.current = "wzory_pod"
+                ScrollButton:
+                    text:"wzrót 2"
+                ScrollButton:
+                    text:"wzrót 3"
+
+
+                
+            
+        Button:
+            background_normal: 'static\Calc_before.png' # Twoja ścieżka do obrazka
+            background_down: 'static\Calc_after.png'  # Obrazek po naciśnięciu
+            size_hint: None, None
+            size: 48, 48
+
+            pos_hint: {'bottom': 1, 'right': 1}
+            halign: 'right'
+
+            on_release:
+                root.manager.current = "calc"
+
+<CalculatorScreen>
+    font_name: "static/PlaypenSans-Regular.ttf"
+    name: "calc"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+
+        Label:
+            text: "calc"
+            pos_hint: {"center_x":0.5, "center_y":0.5}
+            size_hint: 0.2, 0.5
+        
+        BoxLayout:
+            orientation: "horizontal"
+            padding: 10
+            RoundedButton:
+                text:"1"
+            RoundedButton:
+                text:"2"
+            RoundedButton:
+                text:"3"
+
+
+
+
+
+<Wzory_pod>
+
+    name: "wzory_pod" 
+    font_name: "static/PlaypenSans-Regular.ttf"
+
+    FloatLayout:
+
+        ScrollView:
+        
+            pos_hint: {"center_x":0.5 , "center_y":0.6} 
+            size_hint: 0.8,0.5
+            
+            GridLayout:
+                cols:1
+                size: (root.width, root.height)
+                size_hint_y: None
+                height: self.minimum_height
+
+                ScrollButton:
+                    text: "Pole przekroju"
+                    on_release:
+                        root.manager.current = "pole"
+                ScrollButton:
+                    text: "Wzór Hubera"
+                    on_release:
+                        root.manager.current = "huber"
+                ScrollButton:
+                    text:"Wzór Smaliana"
+                    on_release:
+                        root.manager.current = "smalian"
+                ScrollButton:
+                    text:"Wzór Hossfelda"
+                    on_release:
+                        root.manager.current = "hossfeld"
+
+<Pole_>
+    name: "pole"
+
+    d: d
+
+    FloatLayout:
+          
+        Label:
+            
+            font_name: "static/Butcherman-Regular.ttf"
+            font_size: 45
+            
+            text: "Pole przekroju"
+            
+            pos_hint: {"center_x":0.5,"center_y":0.9 }
+
+        GridLayout:
+            cols:2    
+            size_hint: 0.7,0.1
+            pos_hint: {"center_x":0.5,"center_y":0.7 }
+            canvas.before:
+                Color:
+                    rgba: 255/255, 247/255, 12/255, 1  
+                Line:
+                    width: 2
+                    rectangle: self.x-10, self.y-10, self.width+20, self.height+20
+                    
+               
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica kłody d: "
+                    
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                size: 100,100
+                id: d
+                multinline:False
+                halign: 'center'
+                valign: 'center'
+                
+
+        RoundedButton:
+            
+            pos_hint: {"center_x":0.5, "center_y":0.5} 
+            size_hint : 0.2, 0.05
+            text: "Oblicz"
+            on_press: root.btn()
+        
+        Label:
+            font_name: "static/PlaypenSans-Regular.ttf"
+
+            pos_hint: {"center_x":0.5, "center_y":0.4}
+            size_hint : None, None
+            size: 40,20
+
+            id: V  # Identyfikator etykiety V
+            text: "g: " + str(root.g)
+            font_size: 25
+            color: 1,1,1,1 
+
+<Huber_>
+    
+    name: "huber"
+
+    l: l
+    d: d
+
+    FloatLayout:
+          
+        Label:
+            
+            font_name: "static/Butcherman-Regular.ttf"
+            font_size: 35
+            
+            text: "Środkowego przekroju"
+            
+            pos_hint: {"center_x":0.5,"center_y":0.9 }
+
+        GridLayout:
+            cols:2    
+            size_hint: 0.6,0.2
+            pos_hint: {"center_x":0.5,"center_y":0.7 }
+            canvas.before:
+                Color:
+                    rgba: 255/255, 247/255, 12/255, 1  
+                Line:
+                    width: 2
+                    rectangle: self.x-10, self.y-10, self.width+20, self.height+20
+                    
+                
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Długość l: "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                halign: 'center'
+                valign: 'middle'
+                id: l
+                multinline:False
+               
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica drzewa d: "
+                    
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                size: 100,100
+                id: d
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+
+        RoundedButton:
+            
+            pos_hint: {"center_x":0.5, "center_y":0.5} 
+            size_hint : 0.2, 0.05
+            text: "Oblicz"
+            on_press: root.btn()
+        
+        Label:
+            font_name: "static/PlaypenSans-Regular.ttf"
+
+            pos_hint: {"center_x":0.5, "center_y":0.4}
+            size_hint : None, None
+            size: 40,20
+
+            id: V  # Identyfikator etykiety V
+            text: "V: " + str(root.V)
+            font_size: 25
+            color: 1,1,1,1 
+
+<Smalian_>  
+
+    name: "smalian"
+    
+    l: l
+    d0: d0
+    dl: dl
+    stan: stan
+    
+    FloatLayout:
+      
+        Label:
+            
+            font_name: "static/Butcherman-Regular.ttf"
+            font_size: 60
+            
+            text: "Smalian"
+            
+            pos_hint: {"center_x":0.5,"center_y":0.9 }
+
+        GridLayout:
+            cols:2    
+            size_hint: 0.79,0.2
+            pos_hint: {"center_x":0.5,"center_y":0.7 }
+            canvas.before:
+                Color:
+                    rgba: 255/255, 247/255, 12/255, 1  
+                Line:
+                    width: 2
+                    rectangle: self.x-10, self.y-10, self.width+20, self.height+20
+                    
+                
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                         
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Długość l: "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                id: l
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+            
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica dolna d0: "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                
+                id: d0
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+               
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica górna dl: "
+                    
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                size: 100,100
+                id: dl
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+            
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Stan drzewa (): "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                id: stan
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+            
+        RoundedButton:
+            
+            pos_hint: {"center_x":0.5, "center_y":0.5} 
+            size_hint : 0.2, 0.05
+            
+            
+            text: "Oblicz"
+            on_press: root.btn()
+        
+        Label:
+            font_name: "static/PlaypenSans-Regular.ttf"
+            
+            pos_hint: {"center_x":0.5, "center_y":0.4}
+            size_hint : None, None
+            size: 40,20
+
+            id: V  # Identyfikator etykiety V
+            text: "V: " + str(root.V)
+            font_size: 25
+            color: 1,1,1,1 
+
+<Hossfeld_>
+    
+    name: "hossfeld"
+
+    l: l
+    d: d
+    dl: dl
+    stan: stan
+    
+    FloatLayout:
+            
+        Label:
+            
+            font_name: "static/Butcherman-Regular.ttf"
+            font_size: 60
+            
+            text: "Hossfeld"
+            
+            pos_hint: {"center_x":0.5,"center_y":0.9 }
+
+        GridLayout:
+            cols:2    
+            size_hint: 0.79,0.25
+            pos_hint: {"center_x":0.5,"center_y":0.7 }
+            canvas.before:
+                Color:
+                    rgba: 255/255, 247/255, 12/255, 1  
+                Line:
+                    width: 2
+                    rectangle: self.x-10, self.y-10, self.width+20, self.height+20
+                    
+                
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+           
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Długość l: "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                id: l
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+            
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica w 1/3 d: "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+
+                id: d
+                multinline: False
+                halign: 'center'
+                valign: 'middle'
+               
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Średnica górna dl: "
+                    
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                size: 100,100
+                id: dl
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+            
+            Label:
+                font_name: "static/PlaypenSans-Regular.ttf"
+                
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                text: "Stan drzewa (): "
+                
+            TextInput:
+                padding: [0, (self.height - self.line_height) / 2]
+                id: stan
+                multinline:False
+                halign: 'center'
+                valign: 'middle'
+     
+        RoundedButton:
+            
+            pos_hint: {"center_x":0.5, "center_y":0.5} 
+            size_hint : 0.2, 0.05
+            
+            
+            text: "Oblicz"
+            on_press: root.btn()
+        
+        Label:
+            font_name: "static/PlaypenSans-Regular.ttf"
+            
+            pos_hint: {"center_x":0.5, "center_y":0.4}
+            size_hint : None, None
+            size: 40,20
+
+            id: V  # Identyfikator etykiety V
+            text: "V: " + str(root.V)
+            font_size: 25
+            color: 1,1,1,1 
+
